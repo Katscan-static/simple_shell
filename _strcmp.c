@@ -1,8 +1,8 @@
 #include "main.h"
 /**
  * _strcmp - compares two strings
- * @s1: first string.
- * @s2: second string.
+ * @str1: first string.
+ * @str2: second string.
  * Return: 0 if s1 and s2 are equals,
  * another number if not.
  */
@@ -14,7 +14,9 @@ int _strcmp(char *str1, char *str2)
 	while (n == 0)
 	{
 		if ((*(str1 + m) == '\0') && (*(str2 + m) == '\0'))
-				break;
+		{
+			break;
+		}
 		n = *(str1 + m) - *(str1 + m);
 		m++;
 	}
