@@ -2,6 +2,7 @@
 
 /**
  * _getcommand - gets command and executes
+ * @av: argument variable
  *
  * Return: 1 on success 0 on failure
  */
