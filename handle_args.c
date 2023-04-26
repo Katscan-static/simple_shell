@@ -12,7 +12,7 @@ void handle_args(char **token)
 	int i = 0;
 
 	if (!(_strcmp(token[0], "exit")))
-		exit(1);
+		exit(0);
 	if (!(_strcmp(token[0], "env")))
 	{
 		for (; environ[i]; i++)
