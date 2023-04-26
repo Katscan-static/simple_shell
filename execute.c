@@ -29,6 +29,11 @@ void execute(char **args, char **av)
 	else
 	{
 		if (waitpid(my_pid, &status, 0) == -1)
-			perror(av[0]);
+		{
+			_puts(av[0]);
+			_puts(": ");
+			_puts(args[0]);
+			_puts(": command not found\n");
+		}
 	}
 }
