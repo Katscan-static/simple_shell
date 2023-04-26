@@ -13,6 +13,8 @@ int _getcommand(char **av);
 int _putchar(char c);
 void _puts(char *str);
 int _execute(char **tkns, char **av);
+void handle_args(char **token);
+int _strcmp(char *str1, char *str2);
 int token_num(char *str, char *delim);
 char **assign_token(char **token, char *line);
 
