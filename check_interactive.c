@@ -10,7 +10,6 @@ void is_interactive(void)
 	ssize_t read = 0;
 	int interactive = isatty(STDIN_FILENO);
 
-	signal(SIGINT, handle_interrupt);
 
 	do {
 		if (interactive)
