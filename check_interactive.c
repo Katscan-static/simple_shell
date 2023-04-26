@@ -27,10 +27,14 @@ void is_interactive(char **av)
 		}
 		if (line[read - 1] == '\n')
 			line[read - 1] = '\0';
+
 		if (line[0] != '\0')
 		{
 			tokenize_line(args, &line);
-			execute(args, av);
+			if (!(_strcmp(args[0], "exit")) || !(_strcmp(args[0], "env")))
+				handle_args(args);
+			else
+				execute(args, av);
 		}
 
 	} while (interactive);
