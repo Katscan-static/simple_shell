@@ -15,6 +15,8 @@ void _puts(char *str);
 int _execute(char **tkns, char **av);
 void handle_args(char **token);
 int _strcmp(char *str1, char *str2);
+int check_command(char *token);
+char *str_concat(char *s1, char *s2);
 int token_num(char *str, char *delim);
 char **assign_token(char **token, char *line);
 

@@ -33,18 +33,12 @@ int _getcommand(char **av)
 			token = malloc(sizeof(char *) * (tkn_num + 1));
 		if (!token)
 		{
-			free(line);
-			return (0);
+			break;
 		}
 		token = assign_token(token, line);
-			handle_args(token);
-		if ((_strcmp(token[0], "exit")) && (_strcmp(token[0], "env")))
 			_execute(token, av);
 		free(token);
-		token = NULL;
 	} while (interactive);
 	free(line);
-	if (token)
-		free(token);
 	return (1);
 }
