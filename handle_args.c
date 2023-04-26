@@ -11,9 +11,11 @@ void handle_args(char **token)
 {
 	int i = 0;
 
+	if (!token[0])
+		return;
+
 	if (!(_strcmp(token[0], "exit")))
 	{
-		free(token);
 		exit(0);
 	}
 	if (!(_strcmp(token[0], "env")))
