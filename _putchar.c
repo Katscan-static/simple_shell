@@ -17,9 +17,10 @@ int _putchar(char c)
  */
 void _puts(char *str)
 {
-	int i = 0;
+	int m = 0;
 
-	for (; str[i]; i++)
-		_putchar(str[i]);
-
+	for (; str[m]; m++)
+	{
+		_putchar(str[m]);
+	}
 }
