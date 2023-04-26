@@ -26,6 +26,8 @@ int check_command(char *token)
 			if (!chdir(cwd))
 				return (2);
 		}
+
+		chdir(cwd);
 	}
 
 
