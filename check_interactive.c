@@ -2,6 +2,7 @@
 
 /**
  * is_interactive - check if shell is interactive
+ * @av: argument variables
  */
 void is_interactive(char **av)
 {
