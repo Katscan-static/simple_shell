@@ -37,8 +37,8 @@ int _getcommand(char **av)
 			return (0);
 		}
 		token = assign_token(token, line);
-		handle_args(token);
-		if (!(_strcmp(token[0], "exit")) && !(strcmp(token[0], "env")))
+			handle_args(token);
+		if ((_strcmp(token[0], "exit")) && (_strcmp(token[0], "env")))
 			_execute(token, av);
 		free(token);
 		token = NULL;
