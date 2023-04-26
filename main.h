@@ -10,10 +10,10 @@
 
 extern char **environ;
 
-void execute(char **args);
+void execute(char **args, char **av);
 void _puts(char *str);
 int _putchar(char c);
 void handle_interrupt(int signal);
 void tokenize_line(char **args, char **line);
-void is_interactive(void);
+void is_interactive(char **av);
 #endif
