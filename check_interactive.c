@@ -3,7 +3,7 @@
 /**
  * is_interactive - check if shell is interactive
  */
-void is_interactive(void)
+void is_interactive(char **av)
 {
 	char *line = NULL, *args[64];
 	size_t len = 0;
@@ -29,7 +29,7 @@ void is_interactive(void)
 		if (line[0] != '\0')
 		{
 			tokenize_line(args, &line);
-			execute(args);
+			execute(args, av);
 		}
 
 	} while (interactive);

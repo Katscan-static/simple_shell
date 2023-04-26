@@ -4,7 +4,7 @@
  * execute - execute command
  * @args: arguments
  */
-void execute(char **args)
+void execute(char **args, char **av)
 {
 	pid_t my_pid;
 	int status;
@@ -13,20 +13,20 @@ void execute(char **args)
 
 	if (my_pid == -1)
 	{
-		perror("fork");
+		perror(av[0]);
 		exit(EXIT_FAILURE);
 	}
 	else if (my_pid == 0)
 	{
 		if (execve(args[0], args, environ) == -1)
 		{
-			perror("exec");
+			perror(av[0]);
 			exit(EXIT_FAILURE);
 		}
 	}
 	else
 	{
 		if (waitpid(my_pid, &status, 0) == -1)
-			perror("waitpid");
+			perror(av[0]);
 	}
 }
