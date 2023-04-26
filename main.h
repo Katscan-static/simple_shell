@@ -11,6 +11,8 @@
 extern char **environ;
 
 void execute(char **args, char **av);
+int handle_path(char **args);
+char *str_concat(char *s1, char *s2);
 void _puts(char *str);
 int _putchar(char c);
 void handle_interrupt(int signal);

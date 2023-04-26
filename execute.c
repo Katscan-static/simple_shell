@@ -10,7 +10,8 @@ void execute(char **args, char **av)
 	pid_t my_pid;
 	int status;
 
-	my_pid = fork();
+	if (handle_path(args))
+		my_pid = fork();
 
 	if (my_pid == -1)
 	{
