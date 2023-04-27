@@ -27,4 +27,5 @@ void tokenize_line(char **args, char **line);
 void is_interactive(char **av);
 int *fetchline(int fd);
 int *read_buffer(int fd);
+char *cd_builtin(char *d_dir);
 #endif
