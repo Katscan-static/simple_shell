@@ -13,14 +13,12 @@ void is_interactive(char **av)
 
 	interactive = isatty(STDIN_FILENO);
 
-
 	do {
 		if (interactive)
 		{
 			_puts("($) ");
 			fflush(stdout);
 		}
-
 		read = getline(&line, &len, stdin);
 		if (read == -1)
 		{
@@ -29,7 +27,6 @@ void is_interactive(char **av)
 		}
 		if (line[read - 1] == '\n')
 			line[read - 1] = '\0';
-
 		if (line[0] != '\0')
 		{
 			tokenize_line(args, &line);
@@ -39,7 +36,11 @@ void is_interactive(char **av)
 			else
 			{
 				execute(args, av, &path);
-				free(path);
+				if (path)
+				{
+					free(path);
+					path = NULL;
+				}
 			}
 		}
 	} while (interactive);
