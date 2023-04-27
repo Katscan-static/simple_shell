@@ -10,10 +10,10 @@
 
 extern char **environ;
 
-void execute(char **args, char **av);
-int handle_path(char **args);
+void execute(char **args, char **av, char **path);
+int handle_path(char **args, char **path);
 char *str_concat(char *s1, char *s2);
-void handle_args(char **args);
+void handle_args(char **args, char *line);
 char *_strtok(char *str, const char *delimeter);
 int _atoi(char *s);
 int unset_env(char **args);

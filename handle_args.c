@@ -5,7 +5,7 @@
  * @args: arguments
  * @line: line
  */
-void handle_args(char **args)
+void handle_args(char **args, char *line)
 {
 	int i = 0, status = 0;
 
@@ -13,6 +13,7 @@ void handle_args(char **args)
 	{
 		if (args[1] != NULL)
 			status = _atoi(args[1]);
+		free(line);
 		exit(status);
 	}
 	else if (!(_strcmp(args[0], "env")))

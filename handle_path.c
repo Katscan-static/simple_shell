@@ -3,10 +3,11 @@
 /**
  * handle_path - handles path
  * @args: arguments
+ * @path: path for command
  *
  * Return: 0 if error else return 1 or 2
  */
-int handle_path(char **args)
+int handle_path(char **args, char **path)
 {
 	char buf[1024];
 
@@ -17,7 +18,10 @@ int handle_path(char **args)
 		chdir("/bin/");
 		if (!(access(args[0], X_OK)))
 		{
-			args[0] = str_concat("/bin/", args[0]);
+			*path = str_concat("/bin/", args[0]);
+			if (!path)
+				return (0);
+			args[0] = *path;
 			chdir(buf);
 			return (2);
 		}

@@ -6,10 +6,12 @@
  */
 void is_interactive(char **av)
 {
-	char *line = NULL, *args[64];
+	char *line = NULL, *args[64], *path = NULL;
+	int interactive;
 	size_t len = 0;
 	ssize_t read = 0;
-	int interactive = isatty(STDIN_FILENO);
+
+	interactive = isatty(STDIN_FILENO);
 
 
 	do {
@@ -33,11 +35,14 @@ void is_interactive(char **av)
 			tokenize_line(args, &line);
 			if (!(_strcmp(args[0], "exit")) || !(_strcmp(args[0], "env")) ||
 				!(_strcmp(args[0], "setenv")) || !(_strcmp(args[0], "unsetenv")))
-				handle_args(args);
+				handle_args(args, line);
 			else
-				execute(args, av);
+			{
+				execute(args, av, &path);
+				free(path);
+			}
 		}
-
 	} while (interactive);
 	free(line);
+	line = NULL;
 }
