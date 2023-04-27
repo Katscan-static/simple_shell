@@ -7,13 +7,13 @@
  */
 void handle_args(char **args)
 {
-	int i = 0;
+	int i = 0, status = 0;
 
 	if (!(_strcmp(args[0], "exit")))
 	{
-		for (i = 0; args[i]; i++)
-			free(args[i]);
-		exit(1);
+		if (args[1] != NULL)
+			status = _atoi(args[1]);
+		exit(status);
 	}
 	else if (!(_strcmp(args[0], "env")))
 	{
