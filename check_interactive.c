@@ -31,7 +31,8 @@ void is_interactive(char **av)
 		if (line[0] != '\0')
 		{
 			tokenize_line(args, &line);
-			if (!(_strcmp(args[0], "exit")) || !(_strcmp(args[0], "env")))
+			if (!(_strcmp(args[0], "exit")) || !(_strcmp(args[0], "env")) ||
+				!(_strcmp(args[0], "setenv")) || !(_strcmp(args[0], "unsetenv")))
 				handle_args(args);
 			else
 				execute(args, av);

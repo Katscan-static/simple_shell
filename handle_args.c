@@ -23,4 +23,8 @@ void handle_args(char **args)
 			_putchar('\n');
 		}
 	}
+	else if (!(_strcmp(args[0], "setenv")))
+		set_env(args);
+	else if (!(_strcmp(args[0], "unsetenv")))
+		unset_env(args);
 }
