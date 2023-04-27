@@ -15,6 +15,7 @@ int handle_path(char **args);
 char *str_concat(char *s1, char *s2);
 void handle_args(char **args);
 char *_strtok(char *str, const char *delimeter);
+int _atoi(char *s);
 int _strcmp(char *str1, char *str2);
 void _puts(char *str);
 int _putchar(char c);
