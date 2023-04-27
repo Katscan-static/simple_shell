@@ -9,12 +9,11 @@
 int set_env(char **args)
 {
 	int result;
-
 	char *message = "Error: Not enough args";
 
 	if (!args[1] || !args[2])
 	{
-		write(2, message, strlen(message));
+		write(2, message, _strlen(message));
 		return (1);
 	}
 	else
@@ -26,6 +25,5 @@ int set_env(char **args)
 			return (1);
 		}
 	}
-
 	return (0);
 }

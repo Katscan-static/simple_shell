@@ -14,7 +14,7 @@ int unset_env(char **args)
 	if (!args[1])
 	{
 		if (!args[1])
-			write(2, message, strlen(message));
+			write(2, message, _strlen(message));
 		return (1);
 	}
 	else
