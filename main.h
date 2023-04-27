@@ -24,4 +24,6 @@ int _putchar(char c);
 void handle_interrupt(int signal);
 void tokenize_line(char **args, char **line);
 void is_interactive(char **av);
+int *fetchline(int fd);
+int *read_buffer(int fd);
 #endif
