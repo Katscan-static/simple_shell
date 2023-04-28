@@ -4,6 +4,19 @@
 #include <unistd.h>
 
 #define BUFFER_SIZE 1024
+
+/**
+ * not_line - checks for not line prints error
+ * @line: string to be checked
+ */
+void not_line(char *line)
+{
+	if (!line)
+	{
+		perror("malloc error");
+		exit(EXIT_FAILURE);
+	}
+}
 /**
  * read_buffer - reads into data
  * @fd: file descriptor
@@ -32,17 +45,13 @@ char *read_buffer(int fd)
 char *fetchline(int fd)
 {
 	static char *buffer;
-	static int buffer_pos;
-	static int buffer_size;
-	char *line = NULL;
-	char m;
-	int line_pos = 0;
-	int line_size = BUFFER_SIZE;
+	static int buffer_pos,  buffer_size;
+	char *line = NULL, m;
+	int line_pos = 0, line_size = BUFFER_SIZE;
 
 	buffer = NULL;
 	buffer_pos = 0;
 	buffer_size = 0;
-
 	while (1)
 	{
 		if (buffer_pos >= buffer_size)
@@ -63,20 +72,12 @@ char *fetchline(int fd)
 		{
 			line_size += BUFFER_SIZE;
 			line = realloc(line, line_size);
-			if (!line)
-			{
-				perror("realloc error");
-				exit(EXIT_FAILURE);
-			}
+			not_line(line);
 		}
 		if (!line)
 		{
 			line = malloc(line_size);
-			if (!line)
-			{
-				perror("malloc error");
-				exit(EXIT_FAILURE);
-			}
+			not_line(line);
 		}
 	}
 }
